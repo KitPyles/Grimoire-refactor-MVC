@@ -1,20 +1,22 @@
 package com.example.demo.models;
 
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.Id;
 
 @MappedSuperclass
 public abstract class Abstract {
     @Id
     @GeneratedValue
     private int id;
-    
     @NotNull
-    @Size(max=100, message = "Names are capped at 100 characters")
     private String name;
+    @NotNull
+    private String imageName;
+    @NotNull
+    private String concepts;
+    private String astrology;
     
     public int getId() {
         return id;
@@ -26,5 +28,17 @@ public abstract class Abstract {
     
     public void setName(String name) {
         this.name = name;
+    }
+    public String getConcepts() {
+        return concepts;
+    }
+    public void setConcepts(String concepts) {
+        this.concepts = concepts;
+    }
+    public String getAstrology() {
+        return astrology;
+    }
+    public void setAstrology(String astrology) {
+        this.astrology = astrology;
     }
 }

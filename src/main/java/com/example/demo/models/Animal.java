@@ -1,38 +1,31 @@
 package com.example.demo.models;
 
 import jakarta.persistence.ManyToMany;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Animal extends Abstract{
-    @NotNull
-    private String imageName;
-    
-    @NotNull
-    private String concepts;
-    
     @ManyToMany
     private final List<Deity> deityList = new ArrayList<>();
+    private String elements;
+    private String astrology;
     
-    public String getImageName() {
-        return imageName;
-    }
-    
-    public void setImageName(String concepts) {
-        this.imageName = imageName;
-    }
-    
-    public String getConcepts() {
-        return concepts;
-    }
-    
-    public void setConcepts(String concepts) {
-        this.concepts = concepts;
-    }
+    public Animal(){};
     
     public List<Deity> getDeityList() {
         return deityList;
+    }
+    public String getElements() {
+        return elements;
+    }
+    public void setElements(String elements) {
+        this.elements = elements;
+    }
+    public String getAstrology() {
+        return astrology;
+    }
+    public void setAstrology(String astrology) {
+        this.astrology = astrology;
     }
 }
