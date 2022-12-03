@@ -27,7 +27,7 @@ public class AnimalController {
             Animal animal = (Animal) animalTest.get();
             return animal;
         } else {
-            return;
+            return null;
         }
     };
 }

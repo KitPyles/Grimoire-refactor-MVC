@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +14,11 @@ public class Time {
     private int id;
     @NotNull
     private String name;
+    @NotNull
+    private String concepts;
     private String astrology;
-    private List<Color> colorList = new ArrayList<>();
-    private List<Deity> deityList = new ArrayList<>();
+    private List<Integer> colorList = new ArrayList<>();
+    private List<Integer> deityList = new ArrayList<>();
     
     public Time (){};
     
@@ -31,22 +32,28 @@ public class Time {
     public void setName(String name) {
         this.name = name;
     }
+    public String getConcepts() {
+        return concepts;
+    }
+    public void setConcepts(String concepts) {
+        this.concepts = concepts;
+    }
     public String getAstrology() {
         return astrology;
     }
     public void setAstrology(String astrology) {
         this.astrology = astrology;
     }
-    public List<Color> getColorList() {
+    public List<Integer> getColorList() {
         return colorList;
     }
-    public void setColorList(List<Color> colorList) {
+    public void setColorList(List<Integer> colorList) {
         this.colorList = colorList;
     }
-    public List<Deity> getDeityList() {
+    public List<Integer> getDeityList() {
         return deityList;
     }
-    public void setDeityList(List<Deity> deityList) {
+    public void setDeityList(List<Integer> deityList) {
         this.deityList = deityList;
     }
 }

@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
-
 import java.util.ArrayList;
 import java.util.List;
 
