@@ -15,8 +15,6 @@ public abstract class Abstract {
     @NotNull
     private String name;
     @NotNull
-    private String imageURL;
-    @NotNull
     private String imageMeta;
     @NotNull
     private String concepts;
@@ -42,12 +40,6 @@ public abstract class Abstract {
     }
     public void setAstrology(String astrology) {
         this.astrology = astrology;
-    }
-    public String getImageURL() {
-        return imageURL;
-    }
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
     }
     public String getImageMeta() {
         return imageMeta;

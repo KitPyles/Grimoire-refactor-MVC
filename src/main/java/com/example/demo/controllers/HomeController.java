@@ -3,9 +3,9 @@ package com.example.demo.controllers;
 import com.example.demo.models.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("")
@@ -25,10 +25,9 @@ public class HomeController {
     @Autowired
     private TimeRepository timeRepository;
     
-    @RequestMapping("/index")
-    public ModelAndView index(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
-        return modelAndView;
-    };
+    @GetMapping("")
+    public String index(Model model) {
+        model.addAttribute("title","Grimoire");
+        return "index";
+    }
 }

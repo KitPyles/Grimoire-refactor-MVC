@@ -1,28 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <link href="/css/bootstrap.css" rel="stylesheet" />
-    <link href="@{/css/techjobs.css}" rel="stylesheet" />
-    <script type="text/javascript" src="@{/js/bootstrap.js}"></script>
-    <title>Grimoire</title>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: page-head">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">Grimoire</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/animals/view.html">Animals</a></li>
-                <!--                    <li><a href="@{/search}">Search</a></li>-->
-                <!--                    <li><a href="@{/add}">Add Jobs</a></li>-->
-            </ul>
-        </div>
+    <div th:replace="fragments :: header">
     </div>
-    </div>
-    <div>
+    <div class="container body-content">
         <p>This is the home page. I hope.</p>
     </div>
 </body>

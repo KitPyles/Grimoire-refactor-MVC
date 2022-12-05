@@ -8,10 +8,24 @@ import java.util.List;
 @Entity
 public class Animal extends Abstract{
     @ManyToMany
-    private final List<Deity> deityList = new ArrayList<>();
+    private List<Deity> deityList = new ArrayList<>();
     private String elements;
     
     public Animal(){};
+    
+    public Animal(String name, String imageMeta, String concepts, String astrology, List<Deity> deityList) {
+        super();
+        this.deityList = deityList;
+    }
+    public Animal(String name, String imageMeta, String concepts, String astrology, String elements) {
+        super();
+        this.elements = elements;
+    }
+    public Animal(String name, String imageMeta, String concepts, String astrology, List<Deity> deityList, String elements) {
+        super();
+        this.deityList = deityList;
+        this.elements = elements;
+    }
     
     public List<Deity> getDeityList() {
         return deityList;
