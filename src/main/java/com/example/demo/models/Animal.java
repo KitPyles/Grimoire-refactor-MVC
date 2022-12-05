@@ -10,7 +10,6 @@ public class Animal extends Abstract{
     @ManyToMany
     private final List<Deity> deityList = new ArrayList<>();
     private String elements;
-    private String astrology;
     
     public Animal(){};
     
@@ -22,11 +21,5 @@ public class Animal extends Abstract{
     }
     public void setElements(String elements) {
         this.elements = elements;
-    }
-    public String getAstrology() {
-        return astrology;
-    }
-    public void setAstrology(String astrology) {
-        this.astrology = astrology;
     }
 }
