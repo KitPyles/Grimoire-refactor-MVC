@@ -23,15 +23,15 @@ public class AnimalController {
         return "animals/view";
     }
     
-//    @GetMapping("view/${animalId}")
-//    public String displayViewAnimal(Model model, @PathVariable int animalId) {
-//        Optional<Animal> optionalAnimal = animalRepository.findById(animalId);
-//        if(optionalAnimal.isPresent()) {
-//            Animal animal = (Animal) optionalAnimal.get();
-//            model.addAttribute("animal", animal);
-//            return "animals/view";
-//        } else {
-//            return "redirect:../";
-//        }
-//    }
+    @GetMapping("view/{animalId}")
+    public String displayViewAnimal(Model model, @PathVariable int animalId) {
+        Optional optAnimal = animalRepository.findById(animalId);
+        if(optAnimal.isPresent()) {
+            Animal animal = (Animal) optAnimal.get();
+            model.addAttribute("animal", animal);
+            return "skills/view";
+        } else {
+            return "redirect:../";
+        }
+    }
 }

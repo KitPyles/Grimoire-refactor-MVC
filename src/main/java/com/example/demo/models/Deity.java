@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
 
+import java.util.ArrayList;
+
 @Entity
 public class Deity{
     @Id
@@ -55,5 +57,27 @@ public class Deity{
     }
     public void setSymbols(String symbols) {
         this.symbols = symbols;
+    }
+    
+    public static ArrayList<Deity> findByValue(String value, Iterable<Deity> allDeities) {
+        String valueLC = value.toLowerCase();
+        ArrayList<Deity> results = new ArrayList<>();
+        
+        for (Deity deity : allDeities) {
+            if (deity.getName().toLowerCase().contains(valueLC)) {
+                results.add(deity);
+            } else if (deity.getBailiwick().toLowerCase().contains(valueLC)) {
+                results.add(deity);
+            } else if (deity.getSymbols().toLowerCase().contains(valueLC)) {
+                results.add(deity);
+            } else if (deity.getOfferings().toLowerCase().contains(valueLC)) {
+                results.add(deity);
+            } else if (deity.getPantheon().toLowerCase().contains(valueLC)) {
+                results.add(deity);
+            } else if (deity.toString().contains(valueLC)) {
+                results.add(deity);
+            }
+        }
+        return results;
     }
 }

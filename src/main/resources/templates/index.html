@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="fragments :: page-head">
+<head th:replace="~{fragments :: page-head}">
 </head>
 <body>
-    <div th:replace="fragments :: header">
+    <div th:replace="~{fragments :: header}">
     </div>
     <div class="container body-content">
-        <p>This is the home page. I hope.</p>
+        <p class="scripty">
+            This is an attempt to resurrect a project from <b><u>MANY</u></b> moons ago! (For reference, it was a Geocities site.)
+        </p>
+        <p class="scripty">
+            It was originally rebuilt as a single webpage on the Angular framework, using JavaScript. (<b>4743 lines of HTML!!!</b>) This updated version uses Spring Boot, Java, & MySQL Workbench to create a (currently) locally hosted persistent web app. My hope is to build this out to the point that I can host it online, & have authentication restricted access to the information.
+        </p>
+    </div>
+    <div>
+        <p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
     </div>
 </body>
 </html>

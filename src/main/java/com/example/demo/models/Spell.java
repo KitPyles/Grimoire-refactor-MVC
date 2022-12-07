@@ -50,4 +50,22 @@ public class Spell {
     public void setCategory(String category) {
         this.category = category;
     }
+    
+    public static ArrayList<Spell> findByValue(String value, Iterable<Spell> allSpells) {
+        String valueLC = value.toLowerCase();
+        ArrayList<Spell> results = new ArrayList<>();
+        
+        for (Spell spell : allSpells) {
+            if (spell.getName().toLowerCase().contains(valueLC)) {
+                results.add(spell);
+            } else if (spell.getComponents().toString().toLowerCase().contains(valueLC)) {
+                results.add(spell);
+            } else if (spell.getSteps().toString().toLowerCase().contains(valueLC)) {
+                results.add(spell);
+            } else if (spell.toString().contains(valueLC)) {
+                results.add(spell);
+            }
+        }
+        return results;
+    }
 }

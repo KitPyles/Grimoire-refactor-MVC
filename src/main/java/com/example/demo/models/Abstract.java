@@ -5,6 +5,7 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 @MappedSuperclass

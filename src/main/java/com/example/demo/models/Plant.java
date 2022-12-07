@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
 
+import java.util.ArrayList;
+
 @Entity
 public class Plant{
     @Id
@@ -39,5 +41,21 @@ public class Plant{
     }
     public void setImageName(String imageName) {
         this.imageName = imageName;
+    }
+    
+    public static ArrayList<Plant> findByValue(String value, Iterable<Plant> allPlants) {
+        String valueLC = value.toLowerCase();
+        ArrayList<Plant> results = new ArrayList<>();
+        
+        for (Plant plant : allPlants) {
+            if (plant.getName().toLowerCase().contains(valueLC)) {
+                results.add(plant);
+            } else if (plant.getConcepts().toLowerCase().contains(valueLC)) {
+                results.add(plant);
+            } else if (plant.toString().contains(valueLC)) {
+                results.add(plant);
+            }
+        }
+        return results;
     }
 }
