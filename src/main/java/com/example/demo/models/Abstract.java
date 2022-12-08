@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
@@ -16,7 +17,9 @@ public abstract class Abstract {
     @NotNull
     private String name;
     @NotNull
-    private String imageMeta;
+    private String imgAlt;
+    @NotNull
+    private String imgCaption;
     @NotNull
     private String concepts;
     private String astrology;
@@ -42,11 +45,17 @@ public abstract class Abstract {
     public void setAstrology(String astrology) {
         this.astrology = astrology;
     }
-    public String getImageMeta() {
-        return imageMeta;
+    public String getImgAlt() {
+        return imgAlt;
     }
-    public void setImageMeta(String imageMeta) {
-        this.imageMeta = imageMeta;
+    public void setImgAlt(String imgAlt) {
+        this.imgAlt = imgAlt;
+    }
+    public String getImgCaption() {
+        return imgCaption;
+    }
+    public void setImgCaption(String imeCaption) {
+        this.imgCaption = imgCaption;
     }
     
     @Override

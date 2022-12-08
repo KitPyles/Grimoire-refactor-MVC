@@ -9,6 +9,7 @@ import java.util.List;
 public class Animal extends Abstract{
     @ManyToMany
     private List<Deity> deityList = new ArrayList<>();
+    
     private String elements;
     
     public Animal(){};

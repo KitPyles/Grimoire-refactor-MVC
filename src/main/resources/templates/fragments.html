@@ -12,32 +12,29 @@
     <title th:text="${title}">Title</title>
 </head>
 <body>
-<div th:fragment="navbar-spacer">
-    <p> <br> <br> <br></p>
-</div>
-<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark scripty">
-    <div class="container">
-        <a th:href="@{/}" class="navbar-brand">Grimoire</a>
-        <div class="collapse navbar-collapse">
-             <ul class="nav navbar-nav">
-                 <li><a th:href="@{/animals/view}">Animals</a></li>
-                 <li><a th:href="@{/colors/view}">Colors</a></li>
-                 <li><a th:href="@{/deities/view}">Deities</a></li>
-                 <li><a th:href="@{/plants/view}">Plants</a></li>
-                 <li><a th:href="@{/stones/view}">Stones</a></li>
-                 <li><a th:href="@{/times/view}">Time</a></li>
-                 <li></li>
-                <li><a th:href="@{/protection/view}">Protection</a></li>
-                <li><a th:href="@{/self-help/view}">Self-Help</a></li>
-                <li><a th:href="@{/hexes/view}">Hexes</a></li>
-            </ul>
+    <nav th:fragment="header" class="navbar navbar-inverse navbar-sticky-top navbar-dark bg-dark scripty">
+        <div class="container">
+            <a th:href="@{/}" class="navbar-brand">Grimoire</a>
+            <div class="collapse navbar-collapse">
+                 <ul class="nav navbar-nav">
+                     <li><a th:href="@{/animals/view}">Animals</a></li>
+                     <li><a th:href="@{/colors/view}">Colors</a></li>
+                     <li><a th:href="@{/deities/view}">Deities</a></li>
+                     <li><a th:href="@{/plants/view}">Plants</a></li>
+                     <li><a th:href="@{/stones/view}">Stones</a></li>
+                     <li><a th:href="@{/times/view}">Time</a></li>
+                     <li></li>
+                    <li><a th:href="@{/protection/view}">Protection</a></li>
+                    <li><a th:href="@{/self-help/view}">Self-Help</a></li>
+                    <li><a th:href="@{/hexes/view}">Hexes</a></li>
+                </ul>
+            </div>
+    <!--        Not sure how to code Search to check 7+ repositories. Can't build a custom Google Search without an actual domain.-->
+    <!--        <form class="d-flex">-->
+    <!--            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+    <!--            <button class="btn btn-outline-success" type="submit">Search</button>-->
+    <!--        </form>-->
         </div>
-<!--        Not sure how to code Search to check 7+ repositories. Can't build a custom Google Search without an actual domain.-->
-<!--        <form class="d-flex">-->
-<!--            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--            <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--        </form>-->
-    </div>
-</nav>
+    </nav>
 </body>
 </html>

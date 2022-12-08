@@ -28,7 +28,7 @@ public class AnimalController {
         Optional optAnimal = animalRepository.findById(animalId);
         if(optAnimal.isPresent()) {
             Animal animal = (Animal) optAnimal.get();
-            model.addAttribute("animal", animal);
+            model.addAttribute("animals", animal);
             return "skills/view";
         } else {
             return "redirect:../";
