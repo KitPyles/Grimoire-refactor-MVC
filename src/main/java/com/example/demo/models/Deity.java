@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
-
 import java.util.ArrayList;
 
 @Entity
@@ -22,6 +21,13 @@ public class Deity{
     private String offerings;
     @NotNull
     private String symbols;
+    @NotNull
+    private String imgName;
+    @NotNull
+    private String imgAlt;
+    @NotNull
+    private String imgCaption;
+    private String personal;
     
     public Deity(){};
     
@@ -57,6 +63,30 @@ public class Deity{
     }
     public void setSymbols(String symbols) {
         this.symbols = symbols;
+    }
+    public String getImgName() {
+        return imgName;
+    }
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+    public String getImgAlt() {
+        return imgAlt;
+    }
+    public void setImgAlt(String imgAlt) {
+        this.imgAlt = imgAlt;
+    }
+    public String getPersonal() {
+        return personal;
+    }
+    public void setPersonal(String personal) {
+        this.personal = personal;
+    }
+    public String getImgCaption() {
+        return imgCaption;
+    }
+    public void setImgCaption(String imgCaption) {
+        this.imgCaption = imgCaption;
     }
     
     public static ArrayList<Deity> findByValue(String value, Iterable<Deity> allDeities) {

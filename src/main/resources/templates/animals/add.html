@@ -2,6 +2,36 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
     <head th:replace="~{page-head}"></head>
     <body>
+        <form method="post" style="max-width:600px" class="scripty">
+            <div class="form-group">
+                <label th:for="name">Animal Name</label>
+                <input class="form-control" th:field="${animal.name}" />
+                <span th:errors="${animal.name}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label th:for="concepts">Concepts</label>
+                <input class="form-control" th:field="${animal.concepts}" />
+                <span th:errors="${animal.concepts}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label th:for="Elements">Elements</label>
+                <input class="form-control" th:field="${animal.elements}" />
+                <span th:errors="${animal.elements}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label th:for="astrology">Astrological</label>
+                <input class="form-control" th:field="${animal.astrology}" />
+                <span th:errors="${animal.astrology}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label th:for="deities">Deities</label>
+                <th:block th:each="deity : ${deities}">
+                    <input type="checkbox" name="deities" th:value="${deity.id}">
+                    <label th:text="${deity.name}"></label>
+                </th:block>
+                <a th:href="@{'/deities/add'}">Add Deities</a>
+            </div>
+        </form>
 
     </body>
 </html>

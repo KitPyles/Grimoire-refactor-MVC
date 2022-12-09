@@ -5,10 +5,14 @@
     <body>
         <div th:replace="~{fragments :: header}"></div>
         <div class="container">
+            <div class="scripty">
+                <p>Throughout human history, animals have been imbued with properties and meaning, ranging from symbolizing cleverness to being the living embodiment of a deity. This is a <i>brief</i> overview of some common (& uncommon) animals, & the concepts, elements, astrological bodies & events, & deities associated with them. This list is NOT exhaustive, & you may not agree with everything you see here. Remember, this is <b>MY</b> Grimoire. If you don't like something, then don't put it in <b><i>yours.</b></i></p>
+                <a th:href="@{/animals/add}">Add an Animal</a>
+            </div>
             <div>
-                <table>
+                <table th:each="animal : ${animals}">
                     <tr>
-                        <th scope="col" th:text="${animal.name}">Name</th>
+                        <th scope="col"><a th:href="@{'/animals/view/' + ${animal.id}}" th:text="${animal.name}" ></a></th>
                         <th scope="col">Concepts</th>
                         <th scope="col">Elements</th>
                         <th scope="col">Astrological</th>

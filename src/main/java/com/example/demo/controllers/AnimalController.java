@@ -16,20 +16,31 @@ public class AnimalController {
     @Autowired
     private AnimalRepository animalRepository;
     
-    @GetMapping("view")
+    @GetMapping("list")
     public String animalList(Model model){
         model.addAttribute("title","Animal Correspondences");
         model.addAttribute("animals",animalRepository.findAll());
-        return "animals/view";
+        return "animals/list";
     }
     
+//    @GetMapping("view/{animalId}")
+//    public String displayViewAnimal(Model model, @PathVariable int animalId) {
+//        Optional optAnimal = animalRepository.findById(animalId);
+//        if(optAnimal.isPresent()) {
+//            Animal animal = (Animal) optAnimal.get();
+//            model.addAttribute("animal", animal);
+//            return "animals/view";
+//        } else {
+//            return "redirect:../";
+//        }
+//    }
     @GetMapping("view/{animalId}")
     public String displayViewAnimal(Model model, @PathVariable int animalId) {
         Optional optAnimal = animalRepository.findById(animalId);
-        if(optAnimal.isPresent()) {
+        if (optAnimal.isPresent()) {
             Animal animal = (Animal) optAnimal.get();
-            model.addAttribute("animals", animal);
-            return "skills/view";
+            model.addAttribute("animal", animal);
+            return "animals/view";
         } else {
             return "redirect:../";
         }
