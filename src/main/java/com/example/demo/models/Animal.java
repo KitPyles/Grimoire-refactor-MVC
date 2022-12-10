@@ -27,7 +27,10 @@ public class Animal extends Abstract{
         this.deityList = deityList;
         this.elements = elements;
     }
-    public List<Deity> getDeityList() {
+    public void setDeityList(List<Deity> deityList) {
+        this.deityList = deityList;
+    }
+    public Iterable<Deity> getDeityList() {
         return deityList;
     }
     public String getElements() {

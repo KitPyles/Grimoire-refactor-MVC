@@ -3,11 +3,10 @@
     <head th:replace="~{fragments :: page-head}">
     </head>
     <body>
-        <div th:replace="~{fragments :: header}"></div>
+        <nav th:replace="~{fragments :: header}"></nav>
         <div class="container">
             <div class="scripty">
-                <p>Throughout human history, animals have been imbued with properties and meaning, ranging from symbolizing cleverness to being the living embodiment of a deity. This is a <i>brief</i> overview of some common (& uncommon) animals, & the concepts, elements, astrological bodies & events, & deities associated with them. This list is NOT exhaustive, & you may not agree with everything you see here. Remember, this is <b>MY</b> Grimoire. If you don't like something, then don't put it in <b><i>yours.</b></i></p>
-                <a th:href="@{/animals/add}">Add an Animal</a>
+                <p>Throughout human history, animals have been imbued with properties and meaning, ranging from symbolizing cleverness to being the living embodiment of a deity. This is a <i>brief</i> overview of some common (& uncommon) animals, & the concepts, elements, astrological bodies & events, & deities associated with them. This list is NOT exhaustive, & you may not agree with everything you see here. Remember, this is <b>MY</b> Grimoire. If you don't like something, then don't put it in <b><i>yours.</i></b></p>
             </div>
             <div>
                 <table th:each="animal : ${animals}">

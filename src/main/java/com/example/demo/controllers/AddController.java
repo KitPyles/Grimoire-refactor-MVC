@@ -1,15 +1,17 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.Animal;
 import com.example.demo.models.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("")
-public class HomeController {
+@Controller
+@RequestMapping("add")
+public class AddController {
     @Autowired
     private AnimalRepository animalRepository;
     @Autowired
@@ -25,11 +27,11 @@ public class HomeController {
     @Autowired
     private TimeRepository timeRepository;
     
-    @GetMapping("")
-    public String index(Model model) {
-        model.addAttribute("title","Grimoire");
-        return "index";
+    @GetMapping("animal")
+    public String displayAddAnimalForm(Model model) {
+    model.addAttribute("title", "Add an Animal");
+    model.addAttribute("animals", animalRepository.findAll());
+    model.addAttribute(new Animal());
+    return "animal";
     }
-    
-    
 }
