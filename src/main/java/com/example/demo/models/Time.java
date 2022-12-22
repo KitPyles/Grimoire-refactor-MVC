@@ -15,7 +15,7 @@ public class Time {
     @NotNull
     private String name;
     @NotNull
-    private String concepts;
+    private List<Concept> concepts;
     private String astrology;
     private List<Integer> colorList = new ArrayList<>();
     private List<Integer> deityList = new ArrayList<>();
@@ -32,10 +32,10 @@ public class Time {
     public void setName(String name) {
         this.name = name;
     }
-    public String getConcepts() {
+    public List<Concept> getConcepts() {
         return concepts;
     }
-    public void setConcepts(String concepts) {
+    public void setConcepts(List<Concept> concepts) {
         this.concepts = concepts;
     }
     public String getAstrology() {
@@ -62,15 +62,7 @@ public class Time {
         ArrayList<Time> results = new ArrayList<>();
         
         for (Time time : allTimes) {
-            if (time.getName().toLowerCase().contains(valueLC)) {
-                results.add(time);
-            } else if (time.getConcepts().toLowerCase().contains(valueLC)) {
-                results.add(time);
-            } else if (time.getAstrology().toLowerCase().contains(valueLC)) {
-                results.add(time);
-            } else if (time.getDeityList().toString().toLowerCase().contains(valueLC)) {
-                results.add(time);
-            } else if (time.toString().contains(valueLC)) {
+            if (time.getName().toLowerCase().contains(valueLC) || time.getConcepts().toString().toLowerCase().contains(valueLC) || time.getAstrology().toLowerCase().contains(valueLC) || time.getDeityList().toString().toLowerCase().contains(valueLC) || time.toString().contains(valueLC)) {
                 results.add(time);
             }
         }

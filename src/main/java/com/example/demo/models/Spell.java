@@ -15,9 +15,9 @@ public class Spell {
     @NotNull
     private String name;
     @NotNull
-    private List<String> components = new ArrayList<>();
+    private List<SpellComponent> components = new ArrayList<>();
     @NotNull
-    private List<String> steps = new ArrayList<>();
+    private List<SpellStep> steps = new ArrayList<>();
     @NotNull
     private String category;
     
@@ -32,16 +32,16 @@ public class Spell {
     public void setName(String name) {
         this.name = name;
     }
-    public List<String> getComponents() {
+    public List<SpellComponent> getComponents() {
         return components;
     }
-    public void setComponents(List<String> components) {
+    public void setComponents(List<SpellComponent> components) {
         this.components = components;
     }
-    public List<String> getSteps() {
+    public List<SpellStep> getSteps() {
         return steps;
     }
-    public void setSteps(List<String> steps) {
+    public void setSteps(List<SpellStep> steps) {
         this.steps = steps;
     }
     public String getCategory() {
@@ -56,13 +56,7 @@ public class Spell {
         ArrayList<Spell> results = new ArrayList<>();
         
         for (Spell spell : allSpells) {
-            if (spell.getName().toLowerCase().contains(valueLC)) {
-                results.add(spell);
-            } else if (spell.getComponents().toString().toLowerCase().contains(valueLC)) {
-                results.add(spell);
-            } else if (spell.getSteps().toString().toLowerCase().contains(valueLC)) {
-                results.add(spell);
-            } else if (spell.toString().contains(valueLC)) {
+            if (spell.getName().toLowerCase().contains(valueLC) || spell.getComponents().toString().toLowerCase().contains(valueLC) || spell.getSteps().toString().toLowerCase().contains(valueLC) || spell.toString().contains(valueLC)) {
                 results.add(spell);
             }
         }

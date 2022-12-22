@@ -2,9 +2,11 @@ package com.example.demo.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Deity{
@@ -19,13 +21,12 @@ public class Deity{
     private String pantheon;
     @NotNull
     private String offerings;
-    @NotNull
-    private String symbols;
-    @NotNull
+    @ManyToMany
+    private List<Concept> symbols;
+    @ManyToMany
+    private List<Animal> animalSymbols;
     private String imgName;
-    @NotNull
     private String imgAlt;
-    @NotNull
     private String imgCaption;
     private String personal;
     
@@ -58,11 +59,17 @@ public class Deity{
     public void setOfferings(String offerings) {
         this.offerings = offerings;
     }
-    public String getSymbols() {
+    public List<Concept> getSymbols() {
         return symbols;
     }
-    public void setSymbols(String symbols) {
+    public void setSymbols(List<Concept> symbols) {
         this.symbols = symbols;
+    }
+    public List<Animal> getAnimalSymbols() {
+        return animalSymbols;
+    }
+    public void setAnimalSymbols(List<Animal> animalSymbols) {
+        this.animalSymbols = animalSymbols;
     }
     public String getImgName() {
         return imgName;
@@ -94,17 +101,7 @@ public class Deity{
         ArrayList<Deity> results = new ArrayList<>();
         
         for (Deity deity : allDeities) {
-            if (deity.getName().toLowerCase().contains(valueLC)) {
-                results.add(deity);
-            } else if (deity.getBailiwick().toLowerCase().contains(valueLC)) {
-                results.add(deity);
-            } else if (deity.getSymbols().toLowerCase().contains(valueLC)) {
-                results.add(deity);
-            } else if (deity.getOfferings().toLowerCase().contains(valueLC)) {
-                results.add(deity);
-            } else if (deity.getPantheon().toLowerCase().contains(valueLC)) {
-                results.add(deity);
-            } else if (deity.toString().contains(valueLC)) {
+            if (deity.getName().toLowerCase().contains(valueLC) || deity.getBailiwick().toLowerCase().contains(valueLC) || deity.getSymbols().toString().contains(valueLC) || deity.getOfferings().toLowerCase().contains(valueLC) || deity.getPantheon().toLowerCase().contains(valueLC) ||deity.toString().contains(valueLC)) {
                 results.add(deity);
             }
         }

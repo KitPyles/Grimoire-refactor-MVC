@@ -22,15 +22,7 @@ public class Color extends Abstract{
         ArrayList<Color> results = new ArrayList<>();
         
         for (Color color : allColors) {
-            if (color.getName().toLowerCase().contains(valueLC)) {
-                results.add(color);
-            } else if (color.getConcepts().toLowerCase().contains(valueLC)) {
-                results.add(color);
-            } else if (color.getElements().toLowerCase().contains(valueLC)) {
-                results.add(color);
-            } else if (color.getAstrology().toLowerCase().contains(valueLC)) {
-                results.add(color);
-            } else if (color.toString().contains(valueLC)) {
+            if (color.getName().toLowerCase().contains(valueLC) || color.getConcepts().toString().contains(valueLC) || color.getElements().toLowerCase().contains(valueLC) || color.getAstrology().toLowerCase().contains(valueLC) || color.toString().contains(valueLC)) {
                 results.add(color);
             }
         }

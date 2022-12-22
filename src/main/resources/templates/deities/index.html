@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}">
+    </head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <div class="scripty">
+                <p><i>Blurb text about deities.</i></p>
+            </div>
+            <div>
+                <table th:each="deity : ${deities}">
+                    <tr>
+                        <th scope="row">
+                            <a th:href="@{'/deities/view/' + ${deity.id}}" th:text="${deity.name}" class="scripty"></a>
+                            <figure>
+                                <img th:if="${deity.imgAlt != null}" th:src="@{'/images/deities/' + ${deity.imgName}" th:alt="${deity.imgAlt}" width="200px" />
+                                <figcaption class="caption" th:utext="${deity.imgCaption}"></figcaption>
+                            </figure>
+                        </th>
+                        <td th:if="${deity.personal != null}"><p th:utext="${deity.personal}"></p> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="scripty">Pantheon</th>
+                        <td th:text="${deity.pantheon}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="scripty">Bailiwick</th>
+                        <td th:text="${deity.bailiwick}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="scripty">Symbols</th>
+                        <td th:text="${deity.symbols}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="scripty">Offerings</th>
+                        <td th:text="${deity.offerings}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label class="scripty" th:for="name">Animal Name</label>
+                    <input class="form-control" th:field="${animal.name}" />
+                    <span th:errors="${animal.name}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="concepts">Concepts: </label>
+                    <th:block th:each="concept : ${concepts}">
+                        <input type="checkbox" name="concepts" th:value="${concept.id}">
+                        <label class="scripty" th:text="${concept.name}"></label>
+                    </th:block>
+                    <a th:href="@{/concepts/add}">Add Concepts</a>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="elements">Elements</label>
+                    <input class="form-control" th:field="${animal.elements}" />
+                    <span th:errors="${animal.elements}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="astrology">Astrological</label>
+                    <input class="form-control" th:field="${animal.astrology}" />
+                    <span th:errors="${animal.astrology}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgAlt">Image Alt Text</label>
+                    <input class="form-control" th:field="${animal.imgAlt}" />
+                    <span th:errors="${animal.imgAlt}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgCaption">Image Caption Text</label>
+                    <input class="form-control" th:field="${animal.imgCaption}" />
+                    <span th:errors="${animal.imgCaption}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="deities">Deities: </label>
+                    <th:block th:each="deity : ${deities}">
+                        <input type="checkbox" name="deities" th:value="${deity.id}">
+                        <label class="scripty" th:text="${deity.name}"></label>
+                    </th:block>
+                    <a th:href="@{/deities/add}">Add Deities</a>
+                </div>
+
+                <input class="scripty" type="submit" value="Add Animal" />
+            </form>
+        </div>
+    </body>
+</html>

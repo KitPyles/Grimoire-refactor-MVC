@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label class="scripty" th:for="category">Category: </label>
+                    <input type="checkbox" name="categories" th:value="${spell.category}">
+                    <label class="scripty">Protection</label>
+                    <input type="checkbox" name="categories" th:value="${spell.category}">
+                    <label class="scripty">Self-Help</label>
+                    <input type="checkbox" name="categories" th:value="${spell.category}">
+                    <label class="scripty">Hexes</label>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="name">Spell Name</label>
+                    <input class="form-control" th:field="${spell.name}" />
+                    <span th:errors="${spell.name}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="components">Components: </label>
+                    <th:block th:each="component : ${components}">
+                        <input type="checkbox" name="components" th:value="${component.id}">
+                        <label class="scripty" th:text="${component.component}"></label>
+                    </th:block>
+                    <a th:href="@{/spells/components/add}">Add Components</a>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="steps">Steps: </label>
+                    <th:block th:each="step : ${steps}">
+                        <input type="checkbox" name="steps" th:value="${step.id}">
+                        <label class="scripty" th:text="${step.step}"></label>
+                    </th:block>
+                </div>
+
+                <input class="scripty" type="submit" value="Add Spell" />
+            </form>
+        </div>
+    </body>
+</html>

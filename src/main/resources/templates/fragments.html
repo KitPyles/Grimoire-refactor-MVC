@@ -3,132 +3,51 @@
 <head th:fragment="page-head">
     <meta charset="UTF-8"/>
     <!-- Bootstrap stylesheets and script -->
-    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/styles.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script type="text/javascript" th:src="@{/js/dropdown.js}"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
    </style>
     <title th:text="${title}">Title</title>
 </head>
 <body>
-<!--    <nav th:fragment="header" class="navbar navbar-expand-md navbar-sticky-top navbar-dark bg-dark scripty">-->
-<!--        <div class="container">-->
-<!--            <a th:href="@{/}" class="navbar-brand">Grimoire</a>-->
-<!--&lt;!&ndash;            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">&ndash;&gt;-->
-<!--&lt;!&ndash;                <span class="navbar-toggler-icon"></span>&ndash;&gt;-->
-<!--&lt;!&ndash;            </button>&ndash;&gt;-->
-<!--            <div id="navbarSupportedContent" class="collapse navbar-collapse">-->
-<!--                 <ul class="nav navbar-nav">-->
-<!--                     <li class="nav-item dropdown show">-->
-<!--                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
-<!--                             Animals-->
-<!--                             ::after-->
-<!--                         </a>-->
-<!--                        <div class="dropdown-menu show" aria-labelledby="navbarDropdown">-->
-<!--                            <a th:href="@{/animals/index}">All Animals</a>-->
-<!--                            <a th:href="@{/add/animals}">Add an Animal</a>-->
-<!--                        </div>-->
-<!--                     </li>-->
-<!--                     <li class="nav-item"><a th:href="@{/colors/index}">Colors</a></li>-->
-<!--                     <li class="nav-item"><a th:href="@{/deities/index}">Deities</a></li>-->
-<!--                     <li class="nav-item"><a th:href="@{/plants/index}">Plants</a></li>-->
-<!--                     <li class="nav-item"><a th:href="@{/stones/index}">Stones</a></li>-->
-<!--                     <li class="nav-item"><a th:href="@{/times/index}">Time</a></li>-->
-<!--                     <li></li>-->
-<!--                    <li class="nav-item"><a th:href="@{/protection/index}">Protection</a></li>-->
-<!--                    <li class="nav-item"><a th:href="@{/self-help/index}">Self-Help</a></li>-->
-<!--                    <li class="nav-item"><a th:href="@{/hexes/index}">Hexes</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--    &lt;!&ndash;        Not sure how to code Search to check 7+ repositories. Can't build a custom Google Search without an actual domain.&ndash;&gt;-->
-<!--    &lt;!&ndash;        <form class="d-flex">&ndash;&gt;-->
-<!--    &lt;!&ndash;            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">&ndash;&gt;-->
-<!--    &lt;!&ndash;            <button class="btn btn-outline-success" type="submit">Search</button>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </form>&ndash;&gt;-->
-<!--        </div>-->
-<!--    </nav>-->
-<nav th:fragment="header" class="navbar navbar-expand-lg navbar-dark bg-dark scripty">
-    <a class="navbar-brand" href="/">Grimoire</a>
-<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Animals
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/animals/index}">All Animals</a>
-                    <a class="dropdown-item" th:href="@{/add/animals}">Add an Animal</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Colors
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/colors/index}">All Colors</a>
-                    <a class="dropdown-item" th:href="@{/add/colors}">Add a Color</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Deities
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/deities/index}">All Deities</a>
-                    <a class="dropdown-item" th:href="@{/add/deities}">Add a Deities</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Plants
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/plants/index}">All Plants</a>
-                    <a class="dropdown-item" th:href="@{/add/plants}">Add a Plant</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Stones
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/stones/index}">All Stones</a>
-                    <a class="dropdown-item" th:href="@{/add/stones}">Add a Stone</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Protection Spells
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/spells/protection/}">All Protection Spells</a>
-                    <a class="dropdown-item" th:href="@{/add/spells}">Add a Spell</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Self-Help Spells
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/spells/self-help}">All Self-Help Spells</a>
-                    <a class="dropdown-item" th:href="@{/add/spells}">Add a Spell</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hexes
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/spells/hexes}">All Hexes</a>
-                    <a class="dropdown-item" th:href="@{/add/spells}">Add a Spell</a>
-                </div>
-            </li>
+    <nav th:fragment="header" class="navbar navbar-expand-md navbar-sticky-top navbar-dark bg-dark scripty">
+        <ul class="container">
+            <a th:href="@{/}" class="navbar-brand">Grimoire</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul id="main_nav" class="collapse navbar-collapse">
+                 <ul class="navbar-nav">
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                             Animals
+                         </a>
+                        <ul>
+                            <li><a th:href="@{/animals/index}">All Animals</a></li>
+                            <li><a th:href="@{/animals/add}">Add an Animal</a></li>
+                        </ul>
+                     </li>
+                     <li class="nav-item"><a th:href="@{/animals/add}">Add Animal</a></li>
+                     <li class="nav-item"><a th:href="@{/deities/index}">Deities</a></li>
+                     <li class="nav-item"><a th:href="@{/plants/index}">Plants</a></li>
+                     <li class="nav-item"><a th:href="@{/stones/index}">Stones</a></li>
+                     <li class="nav-item"><a th:href="@{/times/index}">Time</a></li>
+                     <li></li>
+                    <li class="nav-item"><a th:href="@{/protection/index}">Protection</a></li>
+                    <li class="nav-item"><a th:href="@{/self-help/index}">Self-Help</a></li>
+                    <li class="nav-item"><a th:href="@{/hexes/index}">Hexes</a></li>
+                </ul>
+            </ul>
         </ul>
-    </div>
-</nav>
+    <!--        Not sure how to code Search to check 7+ repositories. Can't build a custom Google Search without an actual domain.-->
+    <!--        <form class="d-flex">-->
+    <!--            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+    <!--            <button class="btn btn-outline-success" type="submit">Search</button>-->
+    <!--        </form>-->
+        </div>
+    </nav>
 </body>
 </html>

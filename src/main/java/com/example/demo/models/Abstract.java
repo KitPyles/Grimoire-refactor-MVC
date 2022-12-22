@@ -1,12 +1,8 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.persistence.Id;
-
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @MappedSuperclass
@@ -16,12 +12,12 @@ public abstract class Abstract {
     private int id;
     @NotNull
     private String name;
-    @NotNull
+    
     private String imgAlt;
-    @NotNull
     private String imgCaption;
     @NotNull
-    private String concepts;
+    @ManyToMany
+    private List<Concept> concepts;
     private String astrology;
     
     public int getId() {
@@ -33,10 +29,10 @@ public abstract class Abstract {
     public void setName(String name) {
         this.name = name;
     }
-    public String getConcepts() {
+    public List<Concept> getConcepts() {
         return concepts;
     }
-    public void setConcepts(String concepts) {
+    public void setConcepts(List<Concept> concepts) {
         this.concepts = concepts;
     }
     public String getAstrology() {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <div class="scripty">
+                <p>Throughout human history, colors have been imbued with properties and meaning, ranging from symbolizing cleverness to being the living embodiment of a deity. This is a <i>brief</i> overview of some common (& uncommon) colors, & the concepts, elements, astrological bodies & events, & deities associated with them. This list is NOT exhaustive, & you may not agree with everything you see here. Remember, this is <b>MY</b> Grimoire. If you don't like something, then don't put it in <b><i>yours.</i></b></p>
+            </div>
+            <div>
+                <table th:each="color : ${colors}">
+                    <tr>
+                        <th scope="col"><a th:href="@{'/colors/view/' + ${color.id}}" th:text="${color.name}" ></a></th>
+                        <th scope="col">Concepts</th>
+                        <th scope="col">Elements</th>
+                        <th scope="col">Astrological</th>
+                        <th scope="col">Deities</th>
+                    </tr>
+                    <tr>
+                        <td class="image">
+                            <figure>
+                                <img th:src="@{'/images/colors/' + ${color.name} + '.jpg'}" th:alt="'Image of ' + ${color.name}" width="200px" />
+                                <figcaption class="caption" th:utext="'${color.name}"></figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <ul th:each="concept : ${color.concepts}">
+                                <a th:href="@{'/concepts/view' + ${color.concept.id}" th:text="${color.concept.name}"data-bs-toggle="tootltip" title="${color.concept.meaning}"></a>
+                            </ul>
+                        </td>
+                        <td th:text="${color.elements}"></td>
+                        <td th:text="${color.astrology}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

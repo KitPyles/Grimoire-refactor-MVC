@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label class="scripty" th:for="name">Plant Name: </label>
+                    <input class="form-control" th:field="${plant.name}" />
+                    <span th:errors="${plant.name}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="Uses">Plant Uses: </label>
+                    <input class="form-control" th:field="${plant.uses}" />
+                    <span th:errors="${plant.uses}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgName">Image Name: </label>
+                    <input class="form-control" th:field="${plant.imgName}" />
+                    <span th:errors="${plant.imgName}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgAlt">Image Alt Text: </label>
+                    <input class="form-control" th:field="${plant.imgAlt}" />
+                    <span th:errors="${plant.imgAlt}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgCaption">Image Caption Text: </label>
+                    <input class="form-control" th:field="${plant.imgCaption}" />
+                    <span th:errors="${plant.imgCaption}" class="error"></span>
+                </div>
+        
+                <input class="scripty" type="submit" value="Add Plant" />
+            </form>
+        </div>
+    </body>
+</html>

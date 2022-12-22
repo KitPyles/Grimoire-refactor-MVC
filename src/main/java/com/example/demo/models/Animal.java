@@ -14,15 +14,15 @@ public class Animal extends Abstract{
     
     public Animal(){};
     
-    public Animal(String name, String imageMeta, String concepts, String astrology, List<Deity> deityList) {
+    public Animal(String name, String imageMeta, List<Concept> concepts, String astrology, List<Deity> deityList) {
         super();
         this.deityList = deityList;
     }
-    public Animal(String name, String imageMeta, String concepts, String astrology, String elements) {
+    public Animal(String name, String imageMeta, List<Concept> concepts, String astrology, String elements) {
         super();
         this.elements = elements;
     }
-    public Animal(String name, String imageMeta, String concepts, String astrology, List<Deity> deityList, String elements) {
+    public Animal(String name, String imageMeta, List<Concept> concepts, String astrology, List<Deity> deityList, String elements) {
         super();
         this.deityList = deityList;
         this.elements = elements;
@@ -45,17 +45,7 @@ public class Animal extends Abstract{
         ArrayList<Animal> results = new ArrayList<>();
     
         for (Animal animal : allAnimals) {
-            if (animal.getName().toLowerCase().contains(valueLC)) {
-                results.add(animal);
-            } else if (animal.getConcepts().toLowerCase().contains(valueLC)) {
-                results.add(animal);
-            } else if (animal.getElements().toLowerCase().contains(valueLC)) {
-                results.add(animal);
-            } else if (animal.getAstrology().toLowerCase().contains(valueLC)) {
-                results.add(animal);
-            } else if (animal.getDeityList().toString().toLowerCase().contains(valueLC)) {
-                results.add(animal);
-            } else if (animal.toString().contains(valueLC)) {
+            if (animal.getName().toLowerCase().contains(valueLC) ||animal.getConcepts().toString().toLowerCase().contains(valueLC) || animal.getElements().toLowerCase().contains(valueLC) || animal.getAstrology().toLowerCase().contains(valueLC) || animal.getDeityList().toString().toLowerCase().contains(valueLC) || animal.toString().contains(valueLC)) {
                 results.add(animal);
             }
         }

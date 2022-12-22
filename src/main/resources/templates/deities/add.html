@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label class="scripty" th:for="name">Deity Name</label>
+                    <input class="form-control" th:field="${deity.name}" />
+                    <span th:errors="${deity.name}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="personal">Personal History/Relationship</label>
+                    <input class="form-control" th:field="${deity.personal}" />
+                    <span th:errors="${deity.personal}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="symbols">Symbols: </label>
+                    <input class="form-control" th:field="${deity.symbols}" />
+                    <span th:errors="${deity.symbols}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="animalSymbols">Animal Symbols: </label>
+                    <input class="form-control" th:field="${deity.animalSymbols}" />
+                    <span th:errors="${deity.animalSymbols}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="elements">Elements</label>
+                    <input class="form-control" th:field="${deity.elements}" />
+                    <span th:errors="${deity.elements}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="pantheon">Pantheon</label>
+                    <input class="form-control" th:field="${deity.pantheon}" />
+                    <span th:errors="${deity.pantheon}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgName">Image File Name</label>
+                    <input class="form-control" th:field="${deity.imgName}" />
+                    <span th:errors="${deity.imgName}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgAlt">Image Alt Text</label>
+                    <input class="form-control" th:field="${deity.imgAlt}" />
+                    <span th:errors="${deity.imgAlt}" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="scripty" th:for="imgCaption">Image Caption Text</label>
+                    <input class="form-control" th:field="${deity.imgCaption}" />
+                    <span th:errors="${deity.imgCaption}" class="error"></span>
+                </div>
+                <input class="scripty" type="submit" value="Add Deity" />
+            </form>
+        </div>
+    </body>
+</html>

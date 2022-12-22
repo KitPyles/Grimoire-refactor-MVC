@@ -4,6 +4,10 @@
   height: 100%;
 }
 
+.warning {
+    font-weight: bold;
+    color: red;
+}
 
 .box .row.header {
   flex: 0 1 auto;

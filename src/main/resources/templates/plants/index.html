@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <div class="scripty">
+                <p>Throughout human history, plants have been imbued with properties and meaning, ranging from symbolizing cleverness to being the living embodiment of a deity. This is a <i>brief</i> overview of some common (& uncommon) plants, & the concepts, elements, astrological bodies & events, & deities associated with them. This list is NOT exhaustive, & you may not agree with everything you see here. Remember, this is <b>MY</b> Grimoire. If you don't like something, then don't put it in <b><i>yours.</i></b></p>
+            </div>
+            <div>
+                <table th:each="plant : ${plants}">
+                    <tr>
+                        <th scope="col"><a th:href="@{'/plants/view/' + ${plant.id}}" th:text="${plant.name}" ></a></th>
+                        <th scope="col">Uses</th>
+                    </tr>
+                    <tr>
+                        <td class="image">
+                            <figure>
+                                <img th:src="@{'/images/plants/' + ${plant.name} + '.jpg'}" th:alt="'Image of ' + ${plant.name} + 'from' + ${plant.imgAlt}" width="200px" />
+                                <figcaption class="caption" th:utext="''Image of ' + ${plant.name} + 'from' + ${plant.imgCaption}"></figcaption>
+                            </figure>
+                        </td>
+                        <td th:text="${plant.uses}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

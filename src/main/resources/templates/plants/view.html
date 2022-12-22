@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head th:replace="~{fragments :: page-head}"></head>
+    <body>
+        <nav th:replace="~{fragments :: header}"></nav>
+        <div class="container">
+            <div>
+                <table>
+                    <tr>
+                        <th scope="col"><a th:href="@{'/plants/view/' + ${plant.id}}" th:utext="${plant.name}" ></a></th>
+                        <th scope="col">Uses</th>
+                    </tr>
+                    <tr>
+                        <td class="image">
+                            <figure>
+                                <img th:src="@{'/images/plants/' + ${plant.imgName}}" th:alt="'Image of ' + ${plant.name} + 'from' + ${plant.imgAlt}" width="200px" />
+                                <figcaption class="caption" th:utext="''Image of ' + ${plant.name} + 'from' + ${plant.imgCaption}"></figcaption>
+                            </figure>
+                        </td>
+                        <td th:utext="${plant.uses}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

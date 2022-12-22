@@ -32,17 +32,7 @@ public class Stone extends Abstract{
         ArrayList<Stone> results = new ArrayList<>();
         
         for (Stone stone : allStones) {
-            if (stone.getName().toLowerCase().contains(valueLC)) {
-                results.add(stone);
-            } else if (stone.getConcepts().toLowerCase().contains(valueLC)) {
-                results.add(stone);
-            } else if (stone.getElements().toLowerCase().contains(valueLC)) {
-                results.add(stone);
-            } else if (stone.getAstrology().toLowerCase().contains(valueLC)) {
-                results.add(stone);
-            } else if (stone.getDeityList().toString().toLowerCase().contains(valueLC)) {
-                results.add(stone);
-            } else if (stone.toString().contains(valueLC)) {
+            if (stone.getName().toLowerCase().contains(valueLC) || stone.getConcepts().toString().contains(valueLC) || stone.getElements().toLowerCase().contains(valueLC) || stone.getAstrology().toLowerCase().contains(valueLC) || stone.getDeityList().toString().toLowerCase().contains(valueLC) || stone.toString().contains(valueLC)) {
                 results.add(stone);
             }
         }
